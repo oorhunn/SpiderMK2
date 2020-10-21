@@ -14,3 +14,11 @@ class SpecailOffersSpider(scrapy.Spider):
                 'discounted_price': product.xpath(".//div[@class='p_box_price cf']/span[1]/text()").get(),
                 'original_price': product.xpath(".//div[@class='p_box_price cf']/span[2]/text()").get()
             }
+#this part for scraping the next page but robots of the site forbid it and right now i do not know the solution
+        # next_page = response.xpath("//a[@class='nextPage']/@href").get()
+        #
+        # if next_page:
+        #     yield scrapy.Request(url=next_page, callback=self.parse)
+
+
+
