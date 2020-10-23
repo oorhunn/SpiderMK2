@@ -1,4 +1,5 @@
 import scrapy
+import logging
 
 
 class DealSpider(scrapy.Spider):
@@ -19,3 +20,4 @@ class DealSpider(scrapy.Spider):
 
         if next_page:
             yield scrapy.Request(url=next_page, callback=self.parse)
+
