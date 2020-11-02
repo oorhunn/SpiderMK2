@@ -19,7 +19,7 @@ NEWSPIDER_MODULE = 'livecoin.spiders'
 #USER_AGENT = 'livecoin (+http://www.yourdomain.com)'
 
 # Obey robots.txt rules
-ROBOTSTXT_OBEY = False
+ROBOTSTXT_OBEY = True
 
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
 #CONCURRENT_REQUESTS = 32
@@ -92,7 +92,4 @@ DUPEFILTER_CLASS = 'scrapy_splash.SplashAwareDupeFilter'
 #HTTPCACHE_IGNORE_HTTP_CODES = []
 #HTTPCACHE_STORAGE = 'scrapy.extensions.httpcache.FilesystemCacheStorage'
 
-
-SPLASH_URL = 'http://localhost:8050'
-
-FEED_EXPORT_ENCODING = 'utf-8'
+SPLASH_URL = 'http://192.168.99.100:8050'
