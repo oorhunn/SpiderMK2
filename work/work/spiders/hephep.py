@@ -1,16 +1,28 @@
 import scrapy
+from scrapy_splash import SplashRequest
 
 
 class HephepSpider(scrapy.Spider):
     name = 'hephep'
     allowed_domains = ['www.hepsiburada.com']
-    start_urls = ['http://www.hepsiburada.com/iphone-11-64-gb-pm-HB00000NSBZ4']
+
+    script = '''
+        function main(splash, args)
+            splash.private_mode_enabled = true
+            url = args.url
+            assert(splash:go(url))
+            assert(splash:wait(1))
+            return splash:html()
+        end
+    '''
+
+    def start_requests(self):
+        yield SplashRequest(url="https://www.hepsiburada.com/", callback=self.parse, endpoint="execute", args={
+            'lua_source': self.script
+        })
 
     def parse(self, response):
-        for product in response.xpath("//a[@class='hb-recommendation-product-url']"):
-            yield {
-                'url':  response.urljoin(product.xpath(".//text()").get())
-            }
+        print(response)
 
 
 
