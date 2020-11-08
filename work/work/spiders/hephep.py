@@ -17,12 +17,12 @@ class HephepSpider(scrapy.Spider):
     '''
 
     def start_requests(self):
-        yield SplashRequest(url="https://www.hepsiburada.com/", callback=self.parse, endpoint="execute", args={
+        yield SplashRequest(url="https://www.hepsiburada.com", callback=self.parse, endpoint="execute", args={
             'lua_source': self.script
         })
 
     def parse(self, response):
-        print(response)
+        print(response.body)
 
 
 
